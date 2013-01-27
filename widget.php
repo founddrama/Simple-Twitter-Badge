@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Simple Twitter Badge
- * Version: 0.1
- * Plugin URI: https://github.com/founddrama/Simple-Flickr-Badge
+ * Version: 0.2
+ * Plugin URI: https://github.com/founddrama/Simple-Twitter-Badge
  * Description: Super-simple Twitter badge for WordPress blog sidebars.
  * Author: Rob Friesel
  * Author URI: http://blog.founddrama.net
@@ -25,7 +25,7 @@ class Simple_Twitter_Badge extends WP_Widget {
 			<div id="twitter_div"><ul id="twitter_update_list"></ul></div>
 		<?php
 			add_action('wp_footer',
-				create_function('', 'echo \'<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/' . $twitter_name . '.json?callback=twitterCallback2&count=' . $instance['twitter_limit'] . '"></script>\';')
+				create_function('', 'echo \'<script type="text/javascript" src="http://api.twitter.com/1/statuses/user_timeline.json?screen_name=' . $twitter_name . '&callback=twitterCallback2&count=' . $instance['twitter_limit'] . '"></script>\';')
 			);
 		}
 		echo $after_widget;
